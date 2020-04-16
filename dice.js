@@ -50,8 +50,8 @@ export const handleSubmitClick = function(event) {
     string+=`</div>
     </br>
     <div id="buttons">
-    <button id="submit" type="button" value="Submit">Roll</button>
-    <button id="clear" type="button" value="Submit">Clear Dice</button>
+    <button class="button is-warning" id="submit" type="button" value="Submit">Roll</button>
+    <button class="button is-danger" id="clear" type="button" value="Submit">Clear Dice</button>
     </div>`;
     
 
@@ -133,9 +133,9 @@ export const main = function() {
     </form>`);
     */
 
-    $root.append(`Roll how many dice? <div id="numSelect"><button id="down" type="button" value="Submit">   &nbsp&nbsp&lt   &lt&nbsp&nbsp</button>&nbsp&nbsp${numDice}&nbsp&nbsp<button id="up" type="button" value="Submit">   &nbsp&nbsp&gt  &gt&nbsp&nbsp</button></div>
+    $root.append(`Roll how many dice? <div id="numSelect"><button class="button" id="down" type="button" value="Submit">   &nbsp&nbsp&lt   &lt&nbsp&nbsp</button>&nbsp&nbsp${numDice}&nbsp&nbsp<button class="button" id="up" type="button" value="Submit">   &nbsp&nbsp&gt  &gt&nbsp&nbsp</button></div>
     </br>
-    <div id="buttons"><button id="submit" type="button" value="Submit">Roll</button></div>`);
+    <div id="buttons"><button class="button is-warning" id="submit" type="button" value="Submit">Roll</button></div>`);
 
     $root.on('click', '#submit', handleSubmitClick);
     $root.on('click', '#up', handleUpPress);
@@ -149,7 +149,7 @@ export const handleUpPress = function(event) {
         numDice++;
     }
 
-    $('#numSelect').replaceWith(`<div id="numSelect"><button id="down" type="button" value="Submit">   &nbsp&nbsp&lt   &lt&nbsp&nbsp</button>&nbsp&nbsp${numDice}&nbsp&nbsp<button id="up" type="button" value="Submit">   &nbsp&nbsp&gt  &gt&nbsp&nbsp</button></div>`);
+    $('#numSelect').replaceWith(`<div id="numSelect"><button class="button" id="down" type="button" value="Submit">   &nbsp&nbsp&lt   &lt&nbsp&nbsp</button>&nbsp&nbsp${numDice}&nbsp&nbsp<button class="button" id="up" type="button" value="Submit">   &nbsp&nbsp&gt  &gt&nbsp&nbsp</button></div>`);
     //alert(numDice);
 }
 
@@ -158,7 +158,7 @@ export const handleDownPress = function(event) {
         numDice--;
     }
 //alert(numDice);
-    $('#numSelect').replaceWith(`<div id="numSelect"><button id="down" type="button" value="Submit">   &nbsp&nbsp&lt   &lt&nbsp&nbsp</button>&nbsp&nbsp${numDice}&nbsp&nbsp<button id="up" type="button" value="Submit">   &nbsp&nbsp&gt  &gt&nbsp&nbsp</button></div>`);
+    $('#numSelect').replaceWith(`<div id="numSelect"><button class="button" id="down" type="button" value="Submit">   &nbsp&nbsp&lt   &lt&nbsp&nbsp</button>&nbsp&nbsp${numDice}&nbsp&nbsp<button class="button" id="up" type="button" value="Submit">   &nbsp&nbsp&gt  &gt&nbsp&nbsp</button></div>`);
 }
 
 $(function () {
