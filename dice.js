@@ -26,7 +26,7 @@ export const handleSubmitClick = function(event) {
 
             case 0:
                 idString = "weave"+weaveCount;
-                string+=`<img src="WeaveDie.png" id="${idString}">`;
+                string+=`<img src="WeaveDie.png" id="${idString}" onclick="playDie()">`;
                 weaveCount++;
                 break;
             case 1:
@@ -50,7 +50,7 @@ export const handleSubmitClick = function(event) {
     string+=`</div>
     </br>
     <div id="buttons">
-    <button class="button is-warning" id="submit" type="button" value="Submit">Roll</button>
+    <button class="button is-warning" onclick="playDice()" id="submit" type="button" value="Submit">Roll</button>
     <button class="button is-danger" id="clear" type="button" value="Submit">Clear Dice</button>
     </div>`;
     
@@ -77,11 +77,13 @@ export const handleReroll = function(event) {
     let currentWeave = event.target.id;
     let rando = Math.floor(Math.random() * 6);
 
+    console.log(rando);
+
     switch(rando) {
 
         case 0:
-            
-            string+=`<img src=WeaveDie.png id="${currentWeave}">`;
+            alert("Rolled Weave again!");
+            string+=`<img src=WeaveDie.png id="${currentWeave}" onclick="playDice()">`;
             //weaveCount++;
             break;
         case 1:
@@ -135,7 +137,7 @@ export const main = function() {
 
     $root.append(`<div style="text-align: center">Roll how many dice? <div id="numSelect"><button class="button" id="down" type="button" value="Submit">   &nbsp&nbsp&lt   &lt&nbsp&nbsp</button>&nbsp&nbsp${numDice}&nbsp&nbsp<button class="button" id="up" type="button" value="Submit">   &nbsp&nbsp&gt  &gt&nbsp&nbsp</button></div>
     </br>
-    <div id="buttons"><button class="button is-warning" id="submit" type="button" value="Submit">Roll</button></div></div>`);
+    <div id="buttons"><button class="button is-warning" onclick="playDice()" id="submit" type="button" value="Submit">Roll</button></div></div>`);
 
     $root.on('click', '#submit', handleSubmitClick);
     $root.on('click', '#up', handleUpPress);
@@ -160,6 +162,8 @@ export const handleDownPress = function(event) {
 //alert(numDice);
     $('#numSelect').replaceWith(`<div id="numSelect"><button class="button" id="down" type="button" value="Submit">   &nbsp&nbsp&lt   &lt&nbsp&nbsp</button>&nbsp&nbsp${numDice}&nbsp&nbsp<button class="button" id="up" type="button" value="Submit">   &nbsp&nbsp&gt  &gt&nbsp&nbsp</button></div>`);
 }
+
+
 
 $(function () {
   

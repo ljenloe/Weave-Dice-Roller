@@ -10,6 +10,28 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
     </head>
 
+    <audio id="singleDie">
+        <source src="MultipleDiceSound.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="multipleDice">
+        <source src="SingleDieSound.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <script>
+      var myDice= document.getElementById("multipleDice");
+        function playDice() {
+        myDice.play();
+        }
+        
+        var myDie= document.getElementById("singleDie");
+        function playDie() {
+        myDie.play();
+        }</script>
+
+
     <style>
         .content {
           max-width: 500px;
