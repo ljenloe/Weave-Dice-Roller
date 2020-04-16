@@ -1,9 +1,11 @@
 
 const $root = $('#root');
+
+let weaveCount = 0;
 export const handleSubmitClick = function(event) {
 
     
-let weaveCount = 0;
+
     
     let num = document.getElementById("quantity").value;
 
@@ -45,16 +47,20 @@ let weaveCount = 0;
     }
     string+=`</div>
     </br>
-    <button id="submit" type="button" value="Submit">Roll</button>`;
+    <div id="buttons">
+    <button id="submit" type="button" value="Submit">Roll</button>
+    <button id="clear" type="button" value="Submit">Clear Dice</button>
+    </div>`;
     
 
-    $('#submit').replaceWith(string);
+    $('#buttons').replaceWith(string);
 
     $root.off();
     $root.on('click', '#submit', handleSubmitClick);
+    $root.on('click', '#clear', main);
 
     for(let i = 0; i<weaveCount; i++) {
-    let thisId= "weave"+i;
+        let thisId= "weave"+i;
     $root.on('click', '#'+thisId, handleReroll);
     }
 }
@@ -100,7 +106,9 @@ $root.on('click', '#'+currentWeave, handleReroll);
 
 
 export const main = function() {
-    const $root = $('#root');
+    $root.off();
+    $root.empty();
+    //const $root = $('#root');
     /*
     $root.append(`<h1>The input element</h1>
 
@@ -123,7 +131,7 @@ export const main = function() {
 
     $root.append(`Roll how many dice? <input type="number" id="quantity" name="quantity" min="1" max="6">
     </br>
-    <button id="submit" type="button" value="Submit">Roll</button>`);
+    <div id="buttons"><button id="submit" type="button" value="Submit">Roll</button></div>`);
 
     $root.on('click', '#submit', handleSubmitClick);
     
