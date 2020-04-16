@@ -133,9 +133,9 @@ export const main = function() {
     </form>`);
     */
 
-    $root.append(`Roll how many dice? <div id="numSelect"><button class="button" id="down" type="button" value="Submit">   &nbsp&nbsp&lt   &lt&nbsp&nbsp</button>&nbsp&nbsp${numDice}&nbsp&nbsp<button class="button" id="up" type="button" value="Submit">   &nbsp&nbsp&gt  &gt&nbsp&nbsp</button></div>
+    $root.append(`<div style="text-align: center">Roll how many dice? <div id="numSelect"><button class="button" id="down" type="button" value="Submit">   &nbsp&nbsp&lt   &lt&nbsp&nbsp</button>&nbsp&nbsp${numDice}&nbsp&nbsp<button class="button" id="up" type="button" value="Submit">   &nbsp&nbsp&gt  &gt&nbsp&nbsp</button></div>
     </br>
-    <div id="buttons"><button class="button is-warning" id="submit" type="button" value="Submit">Roll</button></div>`);
+    <div id="buttons"><button class="button is-warning" id="submit" type="button" value="Submit">Roll</button></div></div>`);
 
     $root.on('click', '#submit', handleSubmitClick);
     $root.on('click', '#up', handleUpPress);
