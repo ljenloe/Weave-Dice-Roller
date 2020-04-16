@@ -1,13 +1,15 @@
 
 const $root = $('#root');
 
+let numDice=0;
 let weaveCount = 0;
 export const handleSubmitClick = function(event) {
 
     
 
     
-    let num = document.getElementById("quantity").value;
+    //let num = document.getElementById("quantity").value;
+    let num=numDice;
 
     if(num==0){
         alert("You have to roll SOME dice");
@@ -129,13 +131,33 @@ export const main = function() {
     </form>`);
     */
 
-    $root.append(`Roll how many dice? <input type="number" id="quantity" name="quantity" min="1" max="6">
+    $root.append(`Roll how many dice? <div id="numSelect"><button id="down" type="button" value="Submit">   &nbsp&nbsp&lt   &lt&nbsp&nbsp</button>&nbsp&nbsp${numDice}&nbsp&nbsp<button id="up" type="button" value="Submit">   &nbsp&nbsp&gt  &gt&nbsp&nbsp</button></div>
     </br>
     <div id="buttons"><button id="submit" type="button" value="Submit">Roll</button></div>`);
 
     $root.on('click', '#submit', handleSubmitClick);
+    $root.on('click', '#up', handleUpPress);
+    $root.on('click', '#down', handleDownPress);
+
     
 };
+
+export const handleUpPress = function(event) {
+    if(numDice<6) {
+        numDice++;
+    }
+
+    $('#numSelect').replaceWith(`<div id="numSelect"><button id="down" type="button" value="Submit">   &nbsp&nbsp&lt   &lt&nbsp&nbsp</button>&nbsp&nbsp${numDice}&nbsp&nbsp<button id="up" type="button" value="Submit">   &nbsp&nbsp&gt  &gt&nbsp&nbsp</button></div>`);
+    //alert(numDice);
+}
+
+export const handleDownPress = function(event) {
+    if(numDice>0) {
+        numDice--;
+    }
+//alert(numDice);
+    $('#numSelect').replaceWith(`<div id="numSelect"><button id="down" type="button" value="Submit">   &nbsp&nbsp&lt   &lt&nbsp&nbsp</button>&nbsp&nbsp${numDice}&nbsp&nbsp<button id="up" type="button" value="Submit">   &nbsp&nbsp&gt  &gt&nbsp&nbsp</button></div>`);
+}
 
 $(function () {
   
