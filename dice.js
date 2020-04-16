@@ -59,6 +59,8 @@ export const handleSubmitClick = function(event) {
 
     $root.off();
     $root.on('click', '#submit', handleSubmitClick);
+    $root.on('click', '#up', handleUpPress);
+    $root.on('click', '#down', handleDownPress);
     $root.on('click', '#clear', main);
 
     for(let i = 0; i<weaveCount; i++) {
